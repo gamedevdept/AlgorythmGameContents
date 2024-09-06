@@ -10,7 +10,7 @@
 - 팀명 : 
 - 조장 :
 - 조원 : 
-- Github 링크 : [https://github.com/gamedevdept/AlgorythmGameContents]
+- Github 링크 : https://github.com/gamedevdept/AlgorythmGameContents
 
 ### 역할 분담
 
@@ -44,4 +44,4 @@
 
 #### 메모장
 
-특수 문자 : [https://ko.wikipedia.org/wiki/KS_X_1001%EC%9D%98_%ED%8A%B9%EC%88%98_%EB%AC%B8%EC%9E%90]
+특수 문자 : https://ko.wikipedia.org/wiki/KS_X_1001%EC%9D%98_%ED%8A%B9%EC%88%98_%EB%AC%B8%EC%9E%90
