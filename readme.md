@@ -10,6 +10,7 @@
 - 팀명 : 
 - 조장 :
 - 조원 : 
+- Github 링크 : [https://github.com/gamedevdept/AlgorythmGameContents]
 
 ### 역할 분담
 
@@ -18,7 +19,11 @@
 - OOO :
 - OOO :
 
-### 게임 주제
+### 게임 정보
+
+- 주제 : 
+- 사용 언어 : Python
+- 버전 : 3.12.5
 
 ### 게임 스토리
 
