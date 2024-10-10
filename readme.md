@@ -45,3 +45,8 @@
 #### 메모장
 
 특수 문자 : https://ko.wikipedia.org/wiki/KS_X_1001%EC%9D%98_%ED%8A%B9%EC%88%98_%EB%AC%B8%EC%9E%90
+
+#### 참고 자료
+
+https://seb.kr/character/
+https://webnautes.tistory.com/1773
