@@ -24,3 +24,12 @@ def frame():
 def buttonTrigger():
     char = getch.getch().decode('utf-8')
     return char
+
+def lineClear(line):
+    cursorMove(line, 2)
+    print(" " * 160, end="")
+
+def windowClear():
+    for i in range(2, 46):
+        lineClear(i)
+

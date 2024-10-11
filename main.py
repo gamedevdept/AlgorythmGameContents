@@ -1,4 +1,5 @@
 import usefuldefs as defs
+import gamepad
 import story
 import sys
 import time
@@ -13,8 +14,10 @@ while gamestart == False:
     char = defs.buttonTrigger()
     if char == "a" or "A":
         gamestart = True
-        story.story1()
+        defs.windowClear()
+        
+story.story1("example.txt")
 
 
-
+print("테스트 성공")
 time.sleep(3)
