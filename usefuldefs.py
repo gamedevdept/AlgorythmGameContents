@@ -12,7 +12,7 @@ def frame():
     print("┏", end="")
     print("━" * 160, end="")
     print("┓")
-    for i in range(0, 45):
+    for i in range(0, 46):
         print("┃", end="")
         print(" " * 160, end="")
         print("┃")

@@ -4,6 +4,7 @@ import story
 import sys
 import time
 import msvcrt as getch
+import game
 
 gamestart = False
 
@@ -17,6 +18,11 @@ while gamestart == False:
         defs.windowClear()
         
 story.story1("example.txt")
+defs.windowClear()
+game.verticalLine(41)
+game.verticalLine(122)
+game.horizontalLine(41)
+game.partialClear(42, 45, 2, 161)
 
 
 print("테스트 성공")
