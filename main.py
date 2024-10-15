@@ -17,7 +17,7 @@ while gamestart == False:
         gamestart = True
         defs.windowClear()
         
-story.story1("example.txt")
+story.story("storyAscii/example.txt")
 defs.windowClear()
 game.verticalLine(41)
 game.verticalLine(122)

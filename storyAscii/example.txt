@@ -1,4 +1,5 @@
 푸른 하늘 은하수
+ascii:storyAscii/castle.txt
 하얀 쪽배에
 계수 나무 한 나무
 토끼 한 마리
