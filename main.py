@@ -22,5 +22,7 @@ story.story("storyAscii\prologue.txt") # 스토리 실행
 defs.windowClear() # 창 지우기
 
 game.gameScreen()
+gameplay.gamemachi()
 
-time.sleep(3)
+
+time.sleep(5)

@@ -1,59 +1,127 @@
 class knightLv1:
     name = "knight.txt"
+    sort = "knight"
+    lvl = 1
     atk = 2
     defend = 8
     hp = 20
 
 class knightLv2:
-    name = "knight.txt"
+    name = "knightLv2.txt"
+    sort = "knight"
+    lvl = 2
     atk = 4
     defend = 14
     hp = 30
 
 class knightLv3:
-    name = "knight.txt"
+    name = "knightLv3.txt"
+    sort = "knight"
+    lvl = 3
     atk = 7
     defend = 25
     hp = 50
 
 class archerLv1:
     name= "archer.txt"
+    sort = "archer"
+    lvl = 1
     atk = 5
     defend = 2
     hp = 10
 
 class archerLv2:
-    name = "archer.txt"
+    name = "archerLv2.txt"
+    sort = "archer"
+    lvl = 2
     atk = 8
     defend = 4
     hp = 15
 
 class archerLv3:
-    name = "archer.txt"
+    name = "archerLv3.txt"
+    sort = "archer"
+    lvl = 3
     atk = 12
     defend = 6
     hp = 18
 
 class scissorLv1:
     name = "scissor.txt"
+    sort = "scissor"
+    lvl = 1
     atk = 10
     defend = 5
     hp = 13
 
 class scissorLv2:
-    name = "scissor.txt"
+    name = "scissorLv2.txt"
+    sort = "scissor"
+    lvl = 2
     atk = 13
     defend = 7
     hp = 20
 
 class scissorLv3:
-    name = "scissor.txt"
+    name = "scissorLv3.txt"
+    sort = "scissor"
+    lvl = 3
     atk = 15
     defend = 9
     hp = 30
 
+class debufferLv1:
+    name = "debuffer.txt"
+    sort = "debuffer"
+    lvl = 1
+    atk = 0
+    defend = 0
+    hp = 0
+
+class debufferLv2:
+    name = "debufferLv2.txt"
+    sort = "debuffer"
+    lvl = 2
+    atk = 0
+    defend = 0
+    hp = 0
+
+class debufferLv3:
+    name = "debufferLv3.txt"
+    sort = "debuffer"
+    lvl = 3
+    atk = 0
+    defend = 0
+    hp = 0
+
+class healerLv1:
+    name = "healer.txt"
+    sort = "healer"
+    lvl = 1
+    atk = 0
+    defend = 0
+    hp = 0
+
+class healerLv2:
+    name = "healerLv2.txt"
+    sort = "healer"
+    lvl = 2
+    atk = 0
+    defend = 0
+    hp = 0
+
+class healerLv3:
+    name = "healerLv3.txt"
+    sort = "healer"
+    lvl = 3
+    atk = 0
+    defend = 0
+    hp = 0
+
 class empty:
     name = "no.txt"
+    sort = "no"
+    lvl = 0
     atk = 0
     defend = 0
     hp = 0

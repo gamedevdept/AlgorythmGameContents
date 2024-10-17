@@ -39,7 +39,7 @@ def partialClear(startLine, endLine, startx, endx):
 
 def help():
     defs.cursorMove(46, 2)
-    print("Q : 유닛 구매   W + (유닛 숫자) : 유닛 판매  E + (합체할 두 유닛의 번호) : 업그레이드   R : 바느질 세트 구매   T : 전투 시작")
+    print("Q : 유닛 구매 (소모 옷감 : 3)  W : 유닛 판매 | E : 업그레이드 | R : 바느질 세트 구매 (소모 옷감 :    ) | T : 유닛 배치 | Y : 전투 개시")
 
 def stageInfo(message):
     defs.center(message, 2)
