@@ -32,7 +32,7 @@ def story(storyName):
         if quote[i][0:3] == "end":
             while True:
                 cont = defs.buttonTrigger()
-                if cont == "a" or "A":
+                if cont == "a":
                     for i in range(0, printed):
                         defs.lineClear(i + 35)
                     printed = 0

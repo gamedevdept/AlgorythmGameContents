@@ -1,4 +1,5 @@
 import usefuldefs as defs
+import gameplay
 
 def gameScreen():
     defs.windowClear()
@@ -9,6 +10,7 @@ def gameScreen():
     gamePlay()
     horizontalLine(36)
     horizontalLine(3)
+    gameplay.machiUnits()
 
 
 def verticalLine(linenumber):
