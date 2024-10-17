@@ -24,8 +24,12 @@ def frame(): # 게임 테두리를 만드는 함수
     print("┛")
 
 def buttonTrigger(): #getch를 편하게 사용합시다.
-    char = getch.getch().decode('utf-8')
-    return char
+    while True:
+        try:
+            char = getch.getch().decode('utf-8')
+        except:
+            continue
+        return char
 
 def lineClear(line): # 한 줄을 청소하는 함수. 테두리는 지워지지 않음.
     cursorMove(line, 2)
