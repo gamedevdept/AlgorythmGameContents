@@ -15,6 +15,13 @@ fight4 = unit.empty
 fight5 = unit.empty
 fight6 = unit.empty
 
+enemy1 = unit.empty
+enemy2 = unit.empty
+enemy3 = unit.empty
+enemy4 = unit.empty
+enemy5 = unit.empty
+enemy6 = unit.empty
+
 machi1 = unit.empty
 machi2 = unit.empty
 machi3 = unit.empty
@@ -25,13 +32,16 @@ machi7 = unit.empty
 machi8 = unit.empty
 machi9 = unit.empty
 
-fightUnitList = [fight1, fight2, fight3, fight4, fight5, fight6]
+unitList = [fight1, fight2, fight3, fight4, fight5, fight6]
+enemyUnitList = [enemy1, enemy2, enemy3, enemy4, enemy5, enemy6]
 machiUnitList = [machi1, machi2, machi3, machi4, machi5, machi6, machi7, machi8, machi9]
 levelupList = {"knight.txt": unit.knightLv2, "knightLv2.txt": unit.knightLv3, "archer.txt": unit.archerLv2, "archerLv2.txt": unit.archerLv3, "scissor.txt": unit.scissorLv2, "scissorLv2.txt": unit.scissorLv3, "debuffer.txt": unit.debufferLv2, "debufferLv2.txt": unit.debufferLv3, "healer.txt": unit.healerLv2, "healerLv2.txt": unit.healerLv3}
 playerCost = [0, 4, 8, 12, 24, 32]
 
 fightY = [4, 14, 24]
 fightX = [5, 25]
+enemyY = [4, 14, 24]
+enemyX = [127, 147]
 
 def randomunit():
     unitNum = random.randint(0, 5)
@@ -63,7 +73,9 @@ def gamemachi():
     global level
     global maxUnits
     while True:
-        fight()
+        fight(unitList, fightX, fightY)
+        stage(level)
+        fight(enemyUnitList, enemyX, enemyY)
         goldRefresh()
         playerLevel()
         playerLevelUpCost()
@@ -96,7 +108,13 @@ def gamemachi():
             setUnit()
 
         elif getch == "y":
-            stage.stage(level)
+            cleared = fighting()
+            if cleared == 0:
+                level += 1
+                gamemachi()
+                return 0
+            else:
+                gamemachi()
             
 
 
@@ -221,18 +239,18 @@ def playerLevelUpgrade():
         defs.center("옷감이 부족합니다!", 33)
         return 1
 
-def fight():
+def fight(unitList, x, y):
     icons = [[], [], [], [], [], []]
     for i in range(0, 6):
-        file = open("UnitAscii/" + fightUnitList[i].name, "r", encoding="utf-8")
+        file = open("UnitAscii/" + unitList[i].name, "r", encoding="utf-8")
         for line in file:
             icons[i].append(line)
-        icons[i].append("공격력: " + str(fightUnitList[i].atk))
-        icons[i].append("방어력: " + str(fightUnitList[i].defend))
-        icons[i].append("체력: " + str(fightUnitList[i].hp))
+        icons[i].append("공격력: " + str(unitList[i].atk))
+        icons[i].append("방어력: " + str(unitList[i].defend))
+        icons[i].append("체력: " + str(unitList[i].hp))
     count = 0
-    for j in fightX:
-        for k in fightY:
+    for j in x:
+        for k in y:
             for l in range(0, 9):
                 defs.cursorMove(k + l, j)
                 print(icons[count][l])
@@ -261,10 +279,17 @@ def setUnit():
             continue
 
         set = usedUnit()
-        if set < maxUnits:
-            machiUnitList[getch1], fightUnitList[getch2] = fightUnitList[getch2], machiUnitList[getch1]
+        if machiUnitList[getch2].name != "no.txt":
+            machiUnitList[getch1], unitList[getch2] = unitList[getch2], machiUnitList[getch1]
             defs.lineClear(33)
-            fight()
+            fight(unitList, fightX, fightY)
+            machiUnits()
+            return 0
+            
+        elif set < maxUnits:
+            machiUnitList[getch1], unitList[getch2] = unitList[getch2], machiUnitList[getch1]
+            defs.lineClear(33)
+            fight(unitList, fightX, fightY)
             machiUnits()
             return 0
         else:
@@ -280,11 +305,22 @@ def currentLevel():
 
 def usedUnit():
     count = 0
-    for i in fightUnitList:
+    for i in unitList:
         if i.name != "no.txt":
             count += 1
     
     return count
 
+def stage(number):
+    file = open("Stage/Lv" + str(number) + ".txt", "r", encoding="utf-8")
+    count = 0
+    for line in file:
+        enemyUnitList[count] = getattr(unit, line.split("\n")[0])
+
+        count += 1
+
+
+def fighting():
+    return 0
 
 
