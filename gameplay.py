@@ -2,12 +2,14 @@ import unit
 import usefuldefs as defs
 import random
 import stage
+import fight as f
+import game
 
 gold = 10
 level = 1
 maxUnits = 1
 
-fight1 = unit.empty
+fight1 = unit.knightLv1
 fight2 = unit.empty
 fight3 = unit.empty
 fight4 = unit.empty
@@ -40,7 +42,7 @@ playerCost = [0, 4, 8, 12, 24, 32]
 fightY = [4, 14, 24]
 fightX = [25, 5]
 enemyY = [4, 14, 24]
-enemyX = [127, 147]
+enemyX = [125, 145]
 
 def randomunit():
     unitNum = random.randint(0, 5)
@@ -71,6 +73,9 @@ def gamemachi():
     global gold
     global level
     global maxUnits
+    game.gameScreen()
+    if level == 6:
+        return 0
     while True:
         fight(unitList, fightX, fightY)
         stage(level)
@@ -107,14 +112,14 @@ def gamemachi():
             setUnit()
 
         elif getch == "y":
-            cleared = fighting(unitList, enemyUnitList)
-            if cleared == 0:
+            if f.fight(unitList, enemyUnitList) == 0:
                 level += 1
                 gamemachi()
-                return 0
             else:
                 gamemachi()
-                return 0
+                
+            return 0
+
             
 
 
@@ -154,7 +159,7 @@ def unitSell():
         sellGold = machiUnitList[getch].lvl
         if sellGold == 0:
             defs.lineClear(33)
-            defs.center("유효하지 않은 번호입니다.")
+            defs.center("유효하지 않은 번호입니다.", 33)
             return 0
         elif sellGold == 1:
             sellGold = 2
@@ -315,10 +320,5 @@ def stage(number):
         enemyUnitList[count] = getattr(unit, line.split("\n")[0])
 
         count += 1
-
-
-def fighting(fightUnit, enemyUnit):
-    while True:
-        return 0
 
 

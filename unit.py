@@ -6,6 +6,9 @@ class knightLv1:
     defend = 8
     maxhp = 20
     hp = 20
+    team = ""
+    moved = False
+
 
 class knightLv2:
     name = "knightLv2.txt"
@@ -15,6 +18,8 @@ class knightLv2:
     defend = 14
     maxhp = 30
     hp = 30
+    team = ""
+    moved = False
 
 class knightLv3:
     name = "knightLv3.txt"
@@ -24,6 +29,8 @@ class knightLv3:
     defend = 25
     maxhp = 50
     hp = 50
+    team = ""
+    moved = False
 
 class archerLv1:
     name= "archer.txt"
@@ -33,6 +40,8 @@ class archerLv1:
     defend = 2
     maxhp = 10
     hp = 10
+    team = ""
+    moved = False
 
 class archerLv2:
     name = "archerLv2.txt"
@@ -42,6 +51,8 @@ class archerLv2:
     defend = 4
     maxhp = 15
     hp = 15
+    team = ""
+    moved = False
 
 class archerLv3:
     name = "archerLv3.txt"
@@ -51,6 +62,8 @@ class archerLv3:
     defend = 6
     maxhp = 18
     hp = 18
+    team = ""
+    moved = False
 
 class scissorLv1:
     name = "scissor.txt"
@@ -60,6 +73,8 @@ class scissorLv1:
     defend = 5
     maxhp = 13
     hp = 13
+    team = ""
+    moved = False
 
 class scissorLv2:
     name = "scissorLv2.txt"
@@ -69,6 +84,8 @@ class scissorLv2:
     defend = 7
     maxhp = 20
     hp = 20
+    team = ""
+    moved = False
 
 class scissorLv3:
     name = "scissorLv3.txt"
@@ -78,6 +95,8 @@ class scissorLv3:
     defend = 9
     maxhp = 30
     hp = 30
+    team = ""
+    moved = False
 
 class debufferLv1:
     name = "debuffer.txt"
@@ -87,6 +106,8 @@ class debufferLv1:
     defend = 5
     maxhp = 10
     hp = 10
+    team = ""
+    moved = False
 
 class debufferLv2:
     name = "debufferLv2.txt"
@@ -96,6 +117,8 @@ class debufferLv2:
     defend = 5
     maxhp = 15
     hp = 15
+    team = ""
+    moved = False
 
 class debufferLv3:
     name = "debufferLv3.txt"
@@ -105,6 +128,8 @@ class debufferLv3:
     defend = 7
     maxhp = 25
     hp = 25
+    team = ""
+    moved = False
 
 class healerLv1:
     name = "healer.txt"
@@ -114,6 +139,8 @@ class healerLv1:
     defend = 5
     maxhp = 10
     hp = 10
+    team = ""
+    moved = False
 
 class healerLv2:
     name = "healerLv2.txt"
@@ -123,6 +150,8 @@ class healerLv2:
     defend = 5
     maxhp = 15
     hp = 15
+    team = ""
+    moved = False
 
 class healerLv3:
     name = "healerLv3.txt"
@@ -132,6 +161,8 @@ class healerLv3:
     defend = 7
     hp = 25
     maxhp = 25
+    team = ""
+    moved = False
 
 class empty:
     name = "no.txt"
@@ -140,3 +171,6 @@ class empty:
     atk = 0
     defend = 0
     hp = 0
+    maxhp = 0
+    team = ""
+    moved = False

@@ -40,3 +40,6 @@ def windowClear(): # 창 전체를 청소하는 함수. 테두리는 지워지�
     for i in range(2, 46):
         lineClear(i)
 
+def linesClear(start, end):
+    for i in range(start, end + 1):
+        lineClear(i)
