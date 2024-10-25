@@ -7,7 +7,6 @@ gold = 10
 level = 1
 maxUnits = 1
 
-
 fight1 = unit.empty
 fight2 = unit.empty
 fight3 = unit.empty
@@ -39,7 +38,7 @@ levelupList = {"knight.txt": unit.knightLv2, "knightLv2.txt": unit.knightLv3, "a
 playerCost = [0, 4, 8, 12, 24, 32]
 
 fightY = [4, 14, 24]
-fightX = [5, 25]
+fightX = [25, 5]
 enemyY = [4, 14, 24]
 enemyX = [127, 147]
 
@@ -108,13 +107,14 @@ def gamemachi():
             setUnit()
 
         elif getch == "y":
-            cleared = fighting()
+            cleared = fighting(unitList, enemyUnitList)
             if cleared == 0:
                 level += 1
                 gamemachi()
                 return 0
             else:
                 gamemachi()
+                return 0
             
 
 
@@ -202,7 +202,7 @@ def unitUpgrade():
         except:
             continue
 
-        if machiUnitList[getch1].name == machiUnitList[getch2].name:
+        if (machiUnitList[getch1].name == machiUnitList[getch2].name) and machiUnitList[getch1].name != "no.txt":
             machiUnitList[getch1] = levelupList[machiUnitList[getch1].name]
             machiUnitList[getch2] = unit.empty
             machiUnits()
@@ -242,6 +242,8 @@ def playerLevelUpgrade():
 def fight(unitList, x, y):
     icons = [[], [], [], [], [], []]
     for i in range(0, 6):
+        if unitList[i].hp == 0:
+            unitList[i] == unit.empty
         file = open("UnitAscii/" + unitList[i].name, "r", encoding="utf-8")
         for line in file:
             icons[i].append(line)
@@ -279,23 +281,18 @@ def setUnit():
             continue
 
         set = usedUnit()
-        if machiUnitList[getch2].name != "no.txt":
-            machiUnitList[getch1], unitList[getch2] = unitList[getch2], machiUnitList[getch1]
-            defs.lineClear(33)
-            fight(unitList, fightX, fightY)
-            machiUnits()
-            return 0
-            
-        elif set < maxUnits:
-            machiUnitList[getch1], unitList[getch2] = unitList[getch2], machiUnitList[getch1]
-            defs.lineClear(33)
-            fight(unitList, fightX, fightY)
-            machiUnits()
-            return 0
-        else:
-            defs.lineClear(33)
+        
+        if (set == maxUnits) and (unitList[getch2].name == "no.txt"):
             defs.center("더 이상 배치할 수 없습니다!", 33)
+
             return 1
+        else:
+            unitList[getch2], machiUnitList[getch1] = machiUnitList[getch1], unitList[getch2]
+            fight(unitList, fightX, fightY)
+            machiUnits()
+            return 0
+
+
 
 def currentLevel():
     global level
@@ -306,7 +303,7 @@ def currentLevel():
 def usedUnit():
     count = 0
     for i in unitList:
-        if i.name != "no.txt":
+        if i.name != "no.txt" and i.hp != 0:
             count += 1
     
     return count
@@ -320,7 +317,8 @@ def stage(number):
         count += 1
 
 
-def fighting():
-    return 0
+def fighting(fightUnit, enemyUnit):
+    while True:
+        return 0
 
 

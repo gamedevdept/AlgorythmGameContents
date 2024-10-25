@@ -6,6 +6,7 @@ def cursorMove(y, x): #콘솔 창에서 커서 위치를 바꾸기 위한 함수
     print(f"\033[{y};{x}H", end="")
 
 def center(message, line): #메시지를 가운데 정렬하기 위한 함수. 메시지, 출력할 줄
+    lineClear(line)
     cursorMove(line, 81 - len(message) // 2)
     print(message)
 
