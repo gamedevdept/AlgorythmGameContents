@@ -208,21 +208,12 @@ def unitSell():
             sellGold = 9
 
         defs.lineClear(33)
-        defs.center(str(getch + 1) + "번 유닛을 정말 판매하시겠습니까? (Y / N)", 33)
-
-        commit = defs.buttonTrigger()
-        if commit == "y":
-            defs.lineClear(33)
-            defs.center("유닛을 판매했습니다. " + str(sellGold) + "개의 옷감을 얻었습니다.", 33)
-            machiUnitList[getch] = unit.empty
-            gold += sellGold
-            goldRefresh()
-            machiUnits()
-            return 0
-        else:
-            defs.lineClear(33)
-            defs.center("유닛 판매를 취소했습니다.", 33)
-            return 0
+        defs.center("유닛을 판매했습니다. " + str(sellGold) + "개의 옷감을 얻었습니다.", 33)
+        machiUnitList[getch] = unit.empty
+        gold += sellGold
+        goldRefresh()
+        machiUnits()
+        return 0
 
 def unitUpgrade():
     while True:
