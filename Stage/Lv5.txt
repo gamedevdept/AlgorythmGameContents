@@ -1,0 +1,6 @@
+empty
+knightLv3
+empty
+empty
+healerLv1
+archerLv2

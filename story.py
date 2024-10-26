@@ -44,3 +44,7 @@ def story(storyName):
             print(quote[i], end="")
             printed += 1
             
+def ending():
+    defs.windowClear()
+    defs.center("Thank You for Playing", 23)
+    defs.center("24-2 알고리즘과 게임콘텐츠 : 하늘팀", 43)

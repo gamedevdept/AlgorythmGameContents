@@ -9,7 +9,7 @@ gold = 10
 level = 1
 maxUnits = 1
 
-fight1 = unit.knightLv1
+fight1 = unit.empty
 fight2 = unit.empty
 fight3 = unit.empty
 fight4 = unit.empty
@@ -112,13 +112,50 @@ def gamemachi():
             setUnit()
 
         elif getch == "y":
-            if f.fight(unitList, enemyUnitList) == 0:
+            cleared = f.main(makeUnitList())
+
+            if cleared == 0:
                 level += 1
+                gold += 10
                 gamemachi()
+                return 0
             else:
+                gold += 4
                 gamemachi()
-                
-            return 0
+                return 0
+
+
+
+def makeUnitList():
+    global unitList
+    global enemyUnitList
+    entireUnitList = [[], [], []]
+    for i in range(0, 3):
+        for j in range(0, 7):
+            entireUnitList[i].append(unit.empty())
+            
+    
+    count = 0
+    for i in range(1, -1, -1):
+        for j in range(0, 3):
+            entireUnitList[j][i] = unitList[count]()
+            if entireUnitList[j][i].sort != "no":
+                entireUnitList[j][i].team = "user"
+            count += 1
+    
+    count = 0
+
+    for i in range(5, 7):
+        for j in range(0, 3):
+            entireUnitList[j][i] = enemyUnitList[count]()
+            if entireUnitList[j][i].sort != "no":
+                entireUnitList[j][i].team = "enemy"
+            count += 1
+    
+    return entireUnitList
+
+
+
 
             
 
@@ -320,5 +357,3 @@ def stage(number):
         enemyUnitList[count] = getattr(unit, line.split("\n")[0])
 
         count += 1
-
-

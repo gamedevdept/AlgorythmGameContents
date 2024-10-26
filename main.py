@@ -18,11 +18,16 @@ while gamestart == False: # A 키를 누르지 않았을 때 계속해서 반복
         gamestart = True
         defs.windowClear() # 창 지우기
         
-story.story("storyAscii\prologue.txt") # 스토리 실행
+story.story("storyAscii/prologue.txt") # 스토리 실행
 defs.windowClear() # 창 지우기
 
 game.gameScreen()
 gameplay.gamemachi()
+
+defs.windowClear()
+story.story("storyAscii/epilogue.txt")
+
+story.ending()
 
 
 time.sleep(5)

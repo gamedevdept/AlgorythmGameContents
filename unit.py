@@ -2,7 +2,7 @@ class knightLv1:
     name = "knight.txt"
     sort = "knight"
     lvl = 1
-    atk = 2
+    atk = 8
     defend = 8
     maxhp = 20
     hp = 20
@@ -14,7 +14,7 @@ class knightLv2:
     name = "knightLv2.txt"
     sort = "knight"
     lvl = 2
-    atk = 4
+    atk = 12
     defend = 14
     maxhp = 30
     hp = 30
@@ -25,7 +25,7 @@ class knightLv3:
     name = "knightLv3.txt"
     sort = "knight"
     lvl = 3
-    atk = 7
+    atk = 16
     defend = 25
     maxhp = 50
     hp = 50
