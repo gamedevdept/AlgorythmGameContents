@@ -3,4 +3,4 @@ knightLv2
 empty
 empty
 empty
-empty
+archerLv1

@@ -2,10 +2,10 @@ class knightLv1:
     name = "knight.txt"
     sort = "knight"
     lvl = 1
-    atk = 8
+    atk = 5
     defend = 8
-    maxhp = 20
-    hp = 20
+    maxhp = 25
+    hp = 25
     team = ""
     moved = False
 
@@ -14,10 +14,10 @@ class knightLv2:
     name = "knightLv2.txt"
     sort = "knight"
     lvl = 2
-    atk = 12
-    defend = 14
-    maxhp = 30
-    hp = 30
+    atk = 8
+    defend = 13
+    maxhp = 35
+    hp = 35
     team = ""
     moved = False
 
@@ -25,7 +25,7 @@ class knightLv3:
     name = "knightLv3.txt"
     sort = "knight"
     lvl = 3
-    atk = 16
+    atk = 10
     defend = 25
     maxhp = 50
     hp = 50
@@ -36,10 +36,10 @@ class archerLv1:
     name= "archer.txt"
     sort = "archer"
     lvl = 1
-    atk = 5
+    atk = 8
     defend = 2
-    maxhp = 10
-    hp = 10
+    maxhp = 15
+    hp = 15
     team = ""
     moved = False
 
@@ -48,9 +48,9 @@ class archerLv2:
     sort = "archer"
     lvl = 2
     atk = 8
-    defend = 4
-    maxhp = 15
-    hp = 15
+    defend = 5
+    maxhp = 20
+    hp = 20
     team = ""
     moved = False
 
@@ -58,10 +58,10 @@ class archerLv3:
     name = "archerLv3.txt"
     sort = "archer"
     lvl = 3
-    atk = 12
-    defend = 6
-    maxhp = 18
-    hp = 18
+    atk = 18
+    defend = 8
+    maxhp = 25
+    hp = 25
     team = ""
     moved = False
 
@@ -80,10 +80,10 @@ class scissorLv2:
     name = "scissorLv2.txt"
     sort = "scissor"
     lvl = 2
-    atk = 13
+    atk = 15
     defend = 7
-    maxhp = 20
-    hp = 20
+    maxhp = 18
+    hp = 18
     team = ""
     moved = False
 
@@ -91,10 +91,10 @@ class scissorLv3:
     name = "scissorLv3.txt"
     sort = "scissor"
     lvl = 3
-    atk = 15
-    defend = 9
-    maxhp = 30
-    hp = 30
+    atk = 20
+    defend = 10
+    maxhp = 23
+    hp = 23
     team = ""
     moved = False
 
@@ -126,8 +126,8 @@ class debufferLv3:
     lvl = 3
     atk = 0
     defend = 7
-    maxhp = 25
-    hp = 25
+    maxhp = 20
+    hp = 20
     team = ""
     moved = False
 
@@ -159,8 +159,8 @@ class healerLv3:
     lvl = 3
     atk = 0
     defend = 7
-    hp = 25
-    maxhp = 25
+    hp = 20
+    maxhp = 20
     team = ""
     moved = False
 

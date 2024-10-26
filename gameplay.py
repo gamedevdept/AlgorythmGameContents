@@ -291,6 +291,10 @@ def fight(unitList, x, y):
             icons[i].append("공격력: " + str(unitList[i].atk))
             icons[i].append("방어력: " + str(unitList[i].defend))
             icons[i].append("체력: " + str(unitList[i].hp))
+        else:
+            icons[i].append("          ")
+            icons[i].append("          ")
+            icons[i].append("          ")
         icons[i].append(f"    [{i + 1}]")
     count = 0
     for j in x:
