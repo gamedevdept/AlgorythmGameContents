@@ -4,11 +4,11 @@ import gameplay
 def gameScreen():
     defs.windowClear()
 
-    horizontalLine(45)
+    horizontalLine(49)
     help()
-    horizontalLine(34)
+    horizontalLine(38)
     gamePlay()
-    horizontalLine(36)
+    horizontalLine(40)
     horizontalLine(3)
     gameplay.machiUnits()
 
@@ -38,14 +38,14 @@ def partialClear(startLine, endLine, startx, endx):
     print()
 
 def help():
-    defs.cursorMove(46, 2)
+    defs.cursorMove(50, 2)
     print("Q : 유닛 구매 (소모 옷감 : 3)  W : 유닛 판매 | E : 업그레이드 | R : 바느질 세트 구매 (소모 옷감 :    ) | T : 유닛 배치 | Y : 전투 개시")
 
 def stageInfo(message):
     defs.center(message, 2)
 
 def gamePlay():
-    defs.cursorMove(35, 2)
+    defs.cursorMove(39, 2)
     print("소유한 옷감 : ")
-    defs.cursorMove(35, 20)
+    defs.cursorMove(39, 20)
     print("소유한 바느질 세트 : ")

@@ -18,7 +18,7 @@ def asciiart(fileName):
     return 0
 
 def story(storyName):
-    game.horizontalLine(34)
+    game.horizontalLine(38)
     prompt = open(storyName, "r", encoding="utf-8")
     quote = []
     printed = 0
@@ -34,13 +34,13 @@ def story(storyName):
                 cont = defs.buttonTrigger()
                 if cont == "a":
                     for i in range(0, printed):
-                        defs.lineClear(i + 35)
+                        defs.lineClear(i + 39)
                     printed = 0
                     break
         elif quote[i][0:5] == "ascii":
             asciiart(quote[i][6:-1])
         else:
-            defs.cursorMove(printed + 35, 2)
+            defs.cursorMove(printed + 39, 2)
             print(quote[i], end="")
             printed += 1
             

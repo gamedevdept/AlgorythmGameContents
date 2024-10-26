@@ -15,7 +15,7 @@ def frame(): # 게임 테두리를 만드는 함수
     print("┏", end="")
     print("━" * 160, end="")
     print("┓")
-    for i in range(0, 46):
+    for i in range(0, 50):
         print("┃", end="")
         print(" " * 160, end="")
         print("┃")
@@ -37,7 +37,7 @@ def lineClear(line): # 한 줄을 청소하는 함수. 테두리는 지워지지
     print(" " * 160, end="")
 
 def windowClear(): # 창 전체를 청소하는 함수. 테두리는 지워지지 않음.
-    for i in range(2, 46):
+    for i in range(2, 50):
         lineClear(i)
 
 def linesClear(start, end):

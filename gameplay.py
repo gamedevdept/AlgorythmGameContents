@@ -39,17 +39,17 @@ machiUnitList = [machi1, machi2, machi3, machi4, machi5, machi6, machi7, machi8,
 levelupList = {"knight.txt": unit.knightLv2, "knightLv2.txt": unit.knightLv3, "archer.txt": unit.archerLv2, "archerLv2.txt": unit.archerLv3, "scissor.txt": unit.scissorLv2, "scissorLv2.txt": unit.scissorLv3, "debuffer.txt": unit.debufferLv2, "debufferLv2.txt": unit.debufferLv3, "healer.txt": unit.healerLv2, "healerLv2.txt": unit.healerLv3}
 playerCost = [0, 4, 8, 12, 24, 32]
 
-fightY = [4, 14, 24]
+fightY = [4, 15, 26]
 fightX = [25, 5]
-enemyY = [4, 14, 24]
+enemyY = [4, 15, 26]
 enemyX = [125, 145]
 
 def randomunit():
     unitNum = random.randint(0, 5)
     useSlot = searchMachi()
     if useSlot == 10:
-        defs.lineClear(33)
-        defs.center("여유 공간이 없습니다.", 33)
+        defs.lineClear(37)
+        defs.center("여유 공간이 없습니다.", 37)
         return 1
     if unitNum == 0:
         machiUnitList[useSlot] = unit.knightLv1
@@ -94,12 +94,12 @@ def gamemachi():
                 else:
                    continue
             else:
-                defs.lineClear(33)
-                defs.center("옷감이 부족합니다!", 33)
+                defs.lineClear(37)
+                defs.center("옷감이 부족합니다!", 37)
         
         elif getch == "w":
-            defs.lineClear(33)
-            defs.center("판매할 유닛을 선택하세요.", 33)
+            defs.lineClear(37)
+            defs.center("판매할 유닛을 선택하세요.", 37)
             unitSell()
         
         elif getch == "e":
@@ -117,10 +117,12 @@ def gamemachi():
             if cleared == 0:
                 level += 1
                 gold += 10
+                defs.center("승리했습니다!", 37)
                 gamemachi()
                 return 0
             else:
                 gold += 4
+                defs.center("패배했습니다!", 37)
                 gamemachi()
                 return 0
 
@@ -167,8 +169,9 @@ def machiUnits():
         file = open("UnitAscii/" + machiUnitList[name].name,"r", encoding="UTF-8")
         for i in file:
             icon.append(i)
-        for j in range(0, 6):
-            defs.cursorMove(37 + j, 15 + (10 * name) + name * 5)
+        icon.append(f"    [{name + 1}]")
+        for j in range(0, 7):
+            defs.cursorMove(41 + j, 15 + (10 * name) + name * 5)
             print(icon[j], end="")
         print()
                 
@@ -179,9 +182,9 @@ def searchMachi():
     return 10
         
 def goldRefresh():
-    defs.cursorMove(35, 16)
+    defs.cursorMove(39, 16)
     print("   ", end="")
-    defs.cursorMove(35, 16)
+    defs.cursorMove(39, 16)
     print(gold)
 
 def unitSell():
@@ -195,8 +198,8 @@ def unitSell():
 
         sellGold = machiUnitList[getch].lvl
         if sellGold == 0:
-            defs.lineClear(33)
-            defs.center("유효하지 않은 번호입니다.", 33)
+            defs.lineClear(37)
+            defs.center("유효하지 않은 번호입니다.", 37)
             return 0
         elif sellGold == 1:
             sellGold = 2
@@ -207,8 +210,8 @@ def unitSell():
         elif sellGold == 3:
             sellGold = 9
 
-        defs.lineClear(33)
-        defs.center("유닛을 판매했습니다. " + str(sellGold) + "개의 옷감을 얻었습니다.", 33)
+        defs.lineClear(37)
+        defs.center("유닛을 판매했습니다. " + str(sellGold) + "개의 옷감을 얻었습니다.", 37)
         machiUnitList[getch] = unit.empty
         gold += sellGold
         goldRefresh()
@@ -217,8 +220,8 @@ def unitSell():
 
 def unitUpgrade():
     while True:
-        defs.lineClear(33)
-        defs.center("첫 번째 유닛의 번호를 입력하세요.", 33)
+        defs.lineClear(37)
+        defs.center("첫 번째 유닛의 번호를 입력하세요.", 37)
         getch1 = defs.buttonTrigger()
 
         try:
@@ -226,33 +229,37 @@ def unitUpgrade():
         except:
             continue
 
-        defs.lineClear(33)
-        defs.center("두 번째 유닛의 번호를 입력하세요.", 33)
+        defs.lineClear(37)
+        defs.center("두 번째 유닛의 번호를 입력하세요.", 37)
         getch2 = defs.buttonTrigger()
 
         try:
             getch2 = int(getch2) - 1
         except:
             continue
-
+        
         if (machiUnitList[getch1].name == machiUnitList[getch2].name) and machiUnitList[getch1].name != "no.txt":
+            if levelupList.get(machiUnitList[getch1].name) == None:
+                defs.lineClear(37)
+                defs.center("이미 최대 레벨입니다!", 37)
+                return 1 
             machiUnitList[getch1] = levelupList[machiUnitList[getch1].name]
             machiUnitList[getch2] = unit.empty
             machiUnits()
             return 0
         else:
-            defs.lineClear(33)
-            defs.center("업그레이드할 수 없습니다.", 33)
+            defs.lineClear(37)
+            defs.center("업그레이드할 수 없습니다.", 37)
             return 0
         
 def playerLevel():
     global maxUnits
-    defs.cursorMove(35, 41)
+    defs.cursorMove(39, 41)
     print(maxUnits)
 
 def playerLevelUpCost():
     global maxUnits
-    defs.cursorMove(46, 100)
+    defs.cursorMove(50, 100)
     print(playerCost[maxUnits])
 
 def playerLevelUpgrade():
@@ -264,12 +271,12 @@ def playerLevelUpgrade():
         maxUnits += 1
         playerLevel()
         playerLevelUpCost()
-        defs.lineClear(33)
-        defs.center("최대 배치 유닛이 업그레이드되었습니다!", 33)
+        defs.lineClear(37)
+        defs.center("최대 배치 유닛이 업그레이드되었습니다!", 37)
         return 0
     else:
-        defs.lineClear(33)
-        defs.center("옷감이 부족합니다!", 33)
+        defs.lineClear(37)
+        defs.center("옷감이 부족합니다!", 37)
         return 1
 
 def fight(unitList, x, y):
@@ -280,13 +287,15 @@ def fight(unitList, x, y):
         file = open("UnitAscii/" + unitList[i].name, "r", encoding="utf-8")
         for line in file:
             icons[i].append(line)
-        icons[i].append("공격력: " + str(unitList[i].atk))
-        icons[i].append("방어력: " + str(unitList[i].defend))
-        icons[i].append("체력: " + str(unitList[i].hp))
+        if unitList[i].sort != "no":
+            icons[i].append("공격력: " + str(unitList[i].atk))
+            icons[i].append("방어력: " + str(unitList[i].defend))
+            icons[i].append("체력: " + str(unitList[i].hp))
+        icons[i].append(f"    [{i + 1}]")
     count = 0
     for j in x:
         for k in y:
-            for l in range(0, 9):
+            for l in range(0, len(icons[count])):
                 defs.cursorMove(k + l, j)
                 print(icons[count][l])
             count += 1
@@ -295,8 +304,8 @@ def fight(unitList, x, y):
 
 def setUnit():
     while True:
-        defs.lineClear(33)
-        defs.center("배치할 유닛 번호를 입력하세요.", 33)
+        defs.lineClear(37)
+        defs.center("배치할 유닛 번호를 입력하세요.", 37)
         getch1 = defs.buttonTrigger()
 
         try:
@@ -304,8 +313,8 @@ def setUnit():
         except:
             continue
 
-        defs.lineClear(33)
-        defs.center("배치할 위치를 입력하세요.", 33)
+        defs.lineClear(37)
+        defs.center("배치할 위치를 입력하세요.", 37)
         getch2 = defs.buttonTrigger()
 
         try:
@@ -316,13 +325,14 @@ def setUnit():
         set = usedUnit()
         
         if (set == maxUnits) and (unitList[getch2].name == "no.txt"):
-            defs.center("더 이상 배치할 수 없습니다!", 33)
+            defs.center("더 이상 배치할 수 없습니다!", 37)
 
             return 1
         else:
             unitList[getch2], machiUnitList[getch1] = machiUnitList[getch1], unitList[getch2]
             fight(unitList, fightX, fightY)
             machiUnits()
+            defs.center("배치되었습니다.", 37)
             return 0
 
 

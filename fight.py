@@ -38,8 +38,8 @@ def main(list):
 
 def field(): # 게임진행 장소 만들기
     global unitList
-    defs.linesClear(4, 33)
-    xList = [5, 25, 50, 75, 100, 125, 150]
+    defs.linesClear(4, 37)
+    xList = [10, 30, 50, 70, 90, 115, 140]
     yList = [4, 14, 24]
 
     for y in range(0, 3):
@@ -71,7 +71,7 @@ def movedFalse(): # moved를 거짓으로 만들자.
 
 def attack(unitSort, y, x):
 
-    if unitSort == "knight" or unitSort == "Scissor":
+    if unitSort == "knight" or unitSort == "scissor":
         for i in [x + 1, x - 1]:
             if i < 0 or i > 6:
                 continue
@@ -103,6 +103,18 @@ def attack(unitSort, y, x):
                 unitList[i][x].hp -= damage(unitList[y][x].atk, unitList[i][x].defend)
                 return 0
         
+        for i in [y + 1, y - 1]:
+            if i < 0 or i > 2:
+                continue
+            for j in [x + 1, x - 1]:
+                if j < 0 or j > 6:
+                    continue
+
+                elif unitList[i][j].sort != "no" and unitList[y][x].team != unitList[i][j].team:
+                    unitList[i][j].hp -= damage(unitList[y][x].atk, unitList[i][j].defend)
+                    
+                    return 0
+        
         return 1
     
     if unitSort == "debuffer":
@@ -123,6 +135,21 @@ def attack(unitSort, y, x):
                 if unitList[i][x].maxhp <= unitList[i][x].hp:
                     unitList[i][x].hp = unitList[i][x].maxhp
                 return 0
+        
+        for i in [y + 1, y - 1]:
+            if i < 0 or i > 2:
+                continue
+            for j in [x + 1, x - 1]:
+                if j < 0 or j > 6:
+                    continue
+
+                elif unitList[i][j].sort != "no" and unitList[y][x].team != unitList[i][j].team:
+                    unitList[i][j].maxhp -= unitList[i][j].lvl * 2
+                    if unitList[i][x].maxhp <= unitList[i][x].hp:
+                        unitList[i][x].hp = unitList[i][x].maxhp
+                    
+                    return 0
+
         
         return 1
     
@@ -146,6 +173,19 @@ def attack(unitSort, y, x):
                     unitList[i][x].hp = unitList[i][x].maxhp
                 return 0
         
+        for i in [y + 1, y - 1]:
+            if i < 0 or i > 2:
+                continue
+            for j in [x + 1, x - 1]:
+                if j < 0 or j > 6:
+                    continue
+
+                elif unitList[i][j].sort != "no" and unitList[y][x].team == unitList[i][j].team:
+                    unitList[i][j].maxhp += unitList[i][j].lvl * 2
+                    if unitList[i][x].maxhp <= unitList[i][x].hp:
+                        unitList[i][x].hp = unitList[i][x].maxhp
+                    
+                    return 0
         return 1
 
 def damage(atk, defend):
