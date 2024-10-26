@@ -182,8 +182,8 @@ def attack(unitSort, y, x):
 
                 elif unitList[i][j].sort != "no" and unitList[y][x].team == unitList[i][j].team:
                     unitList[i][j].hp += unitList[i][j].lvl * 2
-                    if unitList[i][x].maxhp <= unitList[i][x].hp:
-                        unitList[i][x].hp = unitList[i][x].maxhp
+                    if unitList[i][j].maxhp <= unitList[i][j].hp:
+                        unitList[i][j].hp = unitList[i][j].maxhp
                     
                     return 0
         return 1

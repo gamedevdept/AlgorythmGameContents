@@ -1,10 +1,7 @@
 import usefuldefs as defs
 import story
-import sys
 import time
-import msvcrt as getch
 import game
-import unit
 import gameplay
 
 gamestart = False
