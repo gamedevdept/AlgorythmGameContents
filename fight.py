@@ -20,7 +20,7 @@ def main(list):
 
                     if attacked == 0:
                         field()
-                        time.sleep(0.2)
+                        time.sleep(0.3)
 
                         eg = endGame()
 
@@ -33,7 +33,7 @@ def main(list):
                     else:
                         move(y, x)
                         field()
-                        time.sleep(0.2)
+                        time.sleep(0.3)
 
 
 def field(): # 게임진행 장소 만들기
