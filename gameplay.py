@@ -237,6 +237,11 @@ def unitUpgrade():
             getch2 = int(getch2) - 1
         except:
             continue
+
+        if getch2 == getch1:
+            defs.lineClear(37)
+            defs.center("같은 유닛은 선택할 수 없습니다!", 37)
+            return 1
         
         if (machiUnitList[getch1].name == machiUnitList[getch2].name) and machiUnitList[getch1].name != "no.txt":
             if levelupList.get(machiUnitList[getch1].name) == None:
