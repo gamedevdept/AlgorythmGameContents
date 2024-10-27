@@ -4,8 +4,8 @@ class knightLv1:
     lvl = 1
     atk = 5
     defend = 8
-    maxhp = 25
-    hp = 25
+    maxhp = 20
+    hp = 20
     team = ""
     moved = False
 
@@ -47,7 +47,7 @@ class archerLv2:
     name = "archerLv2.txt"
     sort = "archer"
     lvl = 2
-    atk = 8
+    atk = 13
     defend = 5
     maxhp = 20
     hp = 20

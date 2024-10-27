@@ -1,6 +1,6 @@
-empty
+scissorLv1
 knightLv2
 empty
 empty
-empty
 archerLv1
+empty
