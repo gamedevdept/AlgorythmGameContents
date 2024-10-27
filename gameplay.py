@@ -337,6 +337,11 @@ def setUnit():
             defs.center("더 이상 배치할 수 없습니다!", 37)
 
             return 1
+        elif machiUnitList[getch1].name == "no.txt":
+            defs.center("잘못된 유닛 번호입니다.", 37)
+
+            return 1
+        
         else:
             unitList[getch2], machiUnitList[getch1] = machiUnitList[getch1], unitList[getch2]
             fight(unitList, fightX, fightY)
