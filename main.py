@@ -7,7 +7,7 @@ import gameplay
 gamestart = False
 
 defs.frame() # 게임 테두리 작성
-defs.center("이 멋진 세계에 침략을!", 5) # 게임 제목
+defs.center("인형술사로서 마왕성을 정복합니다!", 5) # 게임 제목
 defs.center("A 키를 눌러 게임 시작", 38) # 출력
 while gamestart == False: # A 키를 누르지 않았을 때 계속해서 반복
     char = defs.buttonTrigger() # 키 하나 입력받기
